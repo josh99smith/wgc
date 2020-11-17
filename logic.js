@@ -77,7 +77,7 @@ function getValues()
         document.getElementById("15results").innerHTML = Math.ceil(preschoolageresult);
         document.getElementById("612results").innerHTML = Math.ceil(schoolageresult);
      }
-  
+     
   else if ([
       'French toast'
     ].indexOf(breadtype) >= 0)
