@@ -1,0 +1,140 @@
+<head></head>
+
+<body>
+<script src="logic.js"></script>
+<form>
+	
+	<table border="0" width="650">
+<tr>
+	<td colspan="2">
+        <font size="2">
+	
+	    <b><font color="#330066">STEP ONE:</font></b><br>
+        <b>What type of food is it?</b><br>
+	 
+	 	<select name="grain_bread" id="grain_bread" class="rtxtbox">
+            <option selected>Select Grain Item</option>		
+            <option value= "Bagels" >Bagels</option>
+            <option value= "Biscuits" >Biscuits</option>
+            <option value= "Bread sticks (hard)"  selected>Bread sticks (hard)</option>
+            <option value= "Bread sticks (soft)" >Bread sticks (soft)</option>
+            <option value= "Breads (white, wheat, whole wheat, French, Italian)" >Breads (white, wheat, whole wheat, French, Italian)</option>
+            <option value= "Breakfast cereals (cooked)" >Breakfast cereals (cooked)</option>
+            <option value= "Breakfast cereals - Flakes (ready to eat)" >Breakfast cereals - Flakes (ready to eat)</option>
+            <option value= "Breakfast cereals - Granola (ready to eat)" >Breakfast cereals - Granola (ready to eat)</option>
+            <option value= "Breakfast cereals - Puffed (ready to eat)" >Breakfast cereals - Puffed (ready to eat)</option>
+            <option value= "Breakfast cereals - Rounds (ready to eat)" >Breakfast cereals - Rounds (ready to eat)</option>
+            <option value= "Buns (hamburger and hot dog)" >Buns (hamburger and hot dog)</option>
+            <option value= "Chow mein noodles" >Chow mein noodles</option>
+            <option value= "Corn muffins" >Corn muffins</option>
+            <option value= "Cornbread" >Cornbread</option>
+            <option value= "Crackers, Savory (club, cheese, ritz, saltine)" >Crackers, Savory (club, cheese, ritz, saltine)</option>
+            <option value= "Crackers, Sweet (graham or animal) - all shapes" >Crackers, Sweet (graham or animal) - all shapes</option>
+            <option value= "Croissants" >Croissants</option>
+            <option value= "Croutons" >Croutons</option>
+            <option value= "English muffins" >English muffins</option>
+            <option value= "French toast" >French toast</option>
+            <option value= "Muffins (all, except corn)" >Muffins (all, except corn)</option>
+            <option value= "Noodles (all varieties)" >Noodles (all varieties)</option>
+            <option value= "Pancakes" >Pancakes</option>
+            <option value= "Pasta (all shapes)" >Pasta (all shapes)</option>
+            <option value= "Pie crusts (savory, meat/meat alternate pies)" >Pie crusts (savory, meat/meat alternate pies)</option>
+            <option value= "Pita bread (white, wheat, whole wheat)" >Pita bread (white, wheat, whole wheat)</option>
+            <option value= "Pizza crust" >Pizza crust</option>
+            <option value= "Popcorn" >Popcorn</option>
+            <option value= "Pretzels (hard)" >Pretzels (hard)</option>
+            <option value= "Pretzels (soft)" >Pretzels (soft)</option>
+            <option value= "Quinoa" >Quinoa</option>
+            <option value= "Rice (enriched white or brown)" >Rice (enriched white or brown)</option>
+            <option value= "Rice Cakes" >Rice Cakes</option>
+            <option value= "Rolls (white, wheat, whole wheat, potato)" >Rolls (white, wheat, whole wheat, potato)</option>
+            <option value= "Stuffing (dry) Note: weights apply to bread in stuffing." >Stuffing (dry) Note: weights apply to bread in stuffing.</option>
+            <option value= "Taco shells" >Taco shells</option>
+            <option value= "Tortilla chips (whole corn or enriched)" >Tortilla chips (whole corn or enriched)</option>
+            <option value= "Tortillas (wheat or corn)" >Tortillas (wheat or corn)</option>
+            <option value= "Waffles" >Waffles</option>
+ 	    </select>	 
+          
+        </font><br></td>
+</tr>
+        
+    <td rowspan="3"></td>
+    
+<tr>
+    <td colspan="2">
+        <font size="2"><br>
+        
+        <b><font color="#330066">STEP TWO:</font></b><br>
+        <b>How many units are in a serving size? </b>
+    
+        <input type="number" id="units" name="units" class="rtxtbox"><br>
+        (Hint: you will find that information on the Nutrition Facts Panel at the very top after serving size.)	  
+        
+       </font></td>		
+    
+</tr>
+
+<tr>
+    <td colspan="2">
+        <font size="2"><br><br>
+
+        <b><font color="#330066">STEP THREE:</font></b><br>
+        <b>What is the weight of a serving size in grams?</b>
+        
+        <input type="number" id="weight" name="weight" class="rtxtbox"><br>
+        (See the Nutrition Facts Panel next to serving size.)
+            
+        </font></td>		
+</tr>
+
+<tr height="12">
+    <td colspan="3" height="12">
+    </td>
+</tr>
+
+<tr>
+    <td colspan="3"><br><br>
+        <input type="button" id="submit" class="blue" name="submit" value="Calculate # of Units to Serve" onclick ="getValues()">
+    </td>
+</tr>
+
+<tr height="16">
+    <td colspan="3" height="16">
+    </td>
+</tr>
+
+</table>
+</form>
+
+<br><br>
+
+
+<table border="1" width="500" cellpadding="2" cellspacing="0" bordercolor="#006600">
+    <tr>
+        <td colspan="2" bgcolor="#CCFFCC" align="center"><font size="2"><b>Food Program Grain Ounce Equivalent Calculation</b></font></td>
+    </tr>
+
+    <tr>
+        <td colspan="1" width="200" align="center"><font size="2"><b>Age Group</b></font></td>
+        <td colspan="1" align="center"><font size="2"><b>How many units do you need to serve?</b></font></td>
+    </tr>
+
+    <tr>
+        <td colspan="1" width="200" align="center"><font size="2">1 - 5 years</font></td>
+      <td colspan="1" align="center"><font size="2"><div id="15results"></div></font></td>
+    </tr>
+
+    <tr>
+        <td colspan="1" width="200" align="center"><font size="2">6 - 12 years</font></td>
+        <td colspan="1" align="center"><font size="2"><div id="612results"></div></font></td>
+    </tr>  
+</table>
+
+
+<table border="0" width="650">
+    <tr height="30">
+    <td colspan="3" height="30">
+    </td>
+    </tr>
+</table>
+</body>
