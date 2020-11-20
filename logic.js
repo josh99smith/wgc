@@ -1,24 +1,20 @@
-// var breadtype;    //type of grain   ---> these 4 aren't needed because I defined them in the function below and converted them to let. also 'var submit;' has no use. - ZO
-// var units;    //number of units in a serving size
-// var weight;    //weight of a serving size in grams
-// var submit;    //submit button for form
-
 const getValues = function () {    //function runs when user presses submit button
    let breadtype = document.getElementById("grain_bread").value;    //assigns the type of bread variable based on user input from html form
    let units = document.getElementById("units").value;    //assigns the number  units variable based on user input from html form
    let weight = document.getElementById("weight").value;    //assigns the weight per serving variable based on user input from html form
 
-   if (['Bread sticks (hard)',   //array of food items (Group A)
+   console.log(breadtype);
+
+   let groupA =[ //array of food items (Group A)
+      'Bread sticks (hard)',
       'Crackers, Savory (club, cheese, ritz, saltine)',
       'Croutons',
       'Chow mein noodles',
       'Pretzels (hard)',
-      'Stuffing (dry) Note: weights apply to bread in stuffing.'
-   ].indexOf(breadtype) >= 0) {    //checks breadtype selected by user in html form, runs calculation only if user has selected one of the items in the array
-      preschoolOE = 11    //assigns ounce equivalency value based on USDA conversion for preschool aged child
-      schoolAgeOE = 22    //assigns ounce equivalency value based on USDA conversion for preschool aged child
+      'Stuffing (dry) Note: weights apply to bread in stuffing.'];
 
-   } else if (['Bagels', //array of food items (Group B)
+   let groupB =[ //array of food items (Group B)
+      'Bagels',
       'Biscuits',
       'Bread sticks (soft)',
       'Breads (white, wheat, whole wheat, French, Italian)',
@@ -30,46 +26,58 @@ const getValues = function () {    //function runs when user presses submit butt
       'Rolls (white, wheat, whole wheat, potato)',
       'Taco shells',
       'Tortilla chips (whole corn or enriched)',
-      'Tortillas (wheat or corn)'
-   ].indexOf(breadtype) >= 0) {
-      preschoolOE = 14    
-      schoolAgeOE = 28    
+      'Tortillas (wheat or corn)'];
 
-   } else if ([   //array of food items (Group C)
+   let groupC =[ //array of food items (Group C)
       'Corn muffins',
       'Cornbread',
       'Croissants',
       'Pancakes',
       'Pie crusts (savory, meat/meat alternate pies)',
-      'Waffles'
-   ].indexOf(breadtype) >= 0) {
-      preschoolOE = 17    
-      schoolAgeOE = 34    
+      'Waffles'];
 
-   } else if (['Muffins (all, except corn)'].indexOf(breadtype) >= 0) {    //array of food items (Group D)
-      preschoolOE = 28    
-      schoolAgeOE = 55    
+   let groupD =['Muffins (all, except corn)']; //array of food items (Group D)
 
-   } else if (['French toast'].indexOf(breadtype) >= 0) {   //array of food items (Group E)
-      preschoolOE = 35    
-      schoolAgeOE = 69    
+   let groupE =['French toast']; //array of food items (Group E)
 
-   } else if ([ //array of food items (Group H)
+   let groupH =[ //array of food items (Group H)
       'Breakfast cereals (cooked)',
       'Noodles (all varieties)',
       'Pasta (all shapes)',
       'Quinoa',
-      'Rice (enriched white or brown)'
-   ].indexOf(breadtype) >= 0) {
-      preschoolOE = 14   
-      schoolAgeOE = 28    
+      'Rice (enriched white or brown)'];
 
-   } else if ([ //array of food items (Group I)
+   let groupI =[ //array of food items (Group I)
       'Breakfast cereals - Flakes (ready to eat)',
       'Breakfast cereals - Granola (ready to eat)',
       'Breakfast cereals - Puffed (ready to eat)',
-      'Breakfast cereals - Rounds (ready to eat)'
-   ].indexOf(breadtype) >= 0) {
+      'Breakfast cereals - Rounds (ready to eat)'];
+
+      if (groupA.includes(breadtype)) {    //checks breadtype selected by user in html form, runs calculation only if user has selected one of the items in the array
+      preschoolOE = 11    //assigns ounce equivalency value based on USDA conversion for preschool aged child
+      schoolAgeOE = 22    //assigns ounce equivalency value based on USDA conversion for preschool aged child
+
+   } else if (groupB.includes(breadtype)) {
+      preschoolOE = 14    
+      schoolAgeOE = 28    
+
+   } else if (groupC.includes(breadtype)) {
+      preschoolOE = 17    
+      schoolAgeOE = 34    
+
+   } else if (groupD.includes(breadtype)) {
+      preschoolOE = 28    
+      schoolAgeOE = 55    
+
+   } else if (groupE.includes(breadtype)) {   
+      preschoolOE = 35    
+      schoolAgeOE = 69    
+
+   } else if (groupH.includes(breadtype)) {
+      preschoolOE = 14   
+      schoolAgeOE = 28    
+
+   } else if (groupI.includes(breadtype)) {
       preschoolOE = 17
       schoolAgeOE = 34
 
@@ -77,7 +85,6 @@ const getValues = function () {    //function runs when user presses submit butt
       console.log("No Value");    //returns only if item selected from dropdown has no ounce ounce equivalency converstion formula yet
    }
 
-   //Calculations for
    cal = Math.ceil(weight / units);    //rounds up the result of weight variable divided by unit variable --- //calculations to output ounce equivalency based on user input
    preschoolAgeResult = preschoolOE / cal;    //assigns ounce equivalency value for preschool aged child
    schoolAgeResult = schoolAgeOE / cal;    //assigns ounce equivalency value for preschool aged child
